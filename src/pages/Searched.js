@@ -36,10 +36,10 @@ const Searched = () => {
     return (
         <div className="container">
             <h1 className="searched-title">Searched recipes: "{params.search}"</h1>
-            <div className="cuisine-grid">
+            <div className="recipes-grid">
                 {searchedRecipes ? (
                     searchedRecipes.map((recipe) => (
-                        <div className="cuisine-recipe" key={recipe.id}>
+                        <div className="recipes-grid-recipe" key={recipe.id}>
                             <Link to={'/recipe/' + recipe.id}>
                                 <img src={recipe.image} alt={recipe.title || "Recipe image"} />
                                 <h4>{recipe.title}</h4>

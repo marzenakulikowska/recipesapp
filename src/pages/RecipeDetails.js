@@ -33,7 +33,11 @@ const RecipeDetails = ()=>{
             setRecipeNutrition({html:localStorageCheck});
         } else {
             try {
-                const response = await fetch(`https://api.spoonacular.com/recipes/${params.recipeId}/nutritionWidget/?apiKey=${process.env.REACT_APP_API_KEY}&defaultCss=true`);
+                const response = await fetch(`https://api.spoonacular.com/recipes/${params.recipeId}/nutritionWidget/?apiKey=${process.env.REACT_APP_API_KEY}&defaultCss=true`, {
+                    headers: {
+                        'Accept': 'text/html'
+                    }
+                })
                 if (!response.ok) {
                     throw new Error('Network response was not ok');
                 }
@@ -119,11 +123,12 @@ const RecipeDetails = ()=>{
     }
     useEffect(()=>{
         fetchedRecipeDetails();
+        fetchedNutrition();
     },[params.recipeId])
     useEffect(() => {
-        if (activeTab === "nutrition") {
-            fetchedNutrition();
-        }
+        // if (activeTab === "nutrition") {
+        //     fetchedNutrition();
+        // }
         if (activeTab === "equipment") {
             fetchedEquipment();
         }
@@ -202,7 +207,7 @@ const RecipeDetails = ()=>{
                                 {activeTab==='price' && (
                                     <div dangerouslySetInnerHTML={{__html: recipePrice.html}}></div>
                                 )}
-                                {activeTab==='recipeCard' && (
+                                {activeTab==='recipeCard' && recipeCard.url!==undefined &&(
                                     <img src={recipeCard.url} alt={recipeDetails.title}/>
                                 )}
                             </div>
