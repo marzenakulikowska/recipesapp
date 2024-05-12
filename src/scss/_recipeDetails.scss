@@ -1,0 +1,84 @@
+.recipe_details_container {
+  margin-bottom: 2rem;
+  display: flex;
+  gap:3rem;
+}
+.recipe-details-title{
+  margin-bottom: 2.5rem;
+  margin-top: 5rem;
+  color:$main-color;
+  text-transform: uppercase;
+  font-size: 3rem;
+}
+.recipe-details-img{
+  border-radius: 3rem;
+  box-shadow: rgba(0, 0, 0, 0.24) 0 3px 8px;
+}
+.recipe-details-side-info{
+  h3{
+    font-size: 2.5rem;
+    color:$main-color;
+    margin-bottom: 2rem;
+  }
+  p{
+    font-size: 1.7rem;
+    line-height: 2.5rem;
+  }
+  ul{
+    margin-top: 2rem;
+    font-size: 1.7rem;
+    line-height: 2.5rem;
+    li{
+      margin-left: 2rem;
+      font-size: 1.5rem;
+    }
+  }
+}
+.recipe-details-buttons{
+  display: flex;
+  gap:2rem;
+  margin-bottom: 2rem;
+}
+.active {
+  background-color: $accent-color;
+  color: white;
+}
+.recipe-details-bottom-info {
+  margin-left: 1rem;
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 4rem;
+  ul{
+    margin-top: 2rem;
+  }
+  li{
+    margin-left: 2rem;
+    line-height: 2.2rem;
+    font-size: 1.5rem;
+  }
+  p{
+    font-size: 1.5rem;
+  }
+}
+.recipe-instructions, .recipe-summary{
+  font-size: 2rem;
+  color:$main-color;
+  margin-bottom: 1rem;
+}
+.recipe-summary{
+  margin-top: 2rem;
+}
+.recipe-details-instructions{
+  font-size: 1.5rem;
+  font-weight: normal;
+  margin-top: 1rem;
+  b{
+    font-size: 1.5rem;
+  }
+  a{
+    font-size: 1.5rem;
+  }
+}
+#spoonacularPriceBreakdownChart{
+  display: none;
+}

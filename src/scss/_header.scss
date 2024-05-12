@@ -1,0 +1,13 @@
+.logo{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 15vh;
+  a{
+    text-align: center;
+    text-decoration: none;
+    color: $main-color;
+    font-family: $logo-font;
+    font-size: 4.4rem;
+  }
+}
