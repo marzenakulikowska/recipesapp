@@ -1,7 +1,7 @@
 {
   "name": "recipesapp",
   "version": "0.1.0",
-  "homepage": "https://marzenakulikowska.github.io/recipeapp",
+  "homepage": ".",
   "private": true,
   "dependencies": {
     "@splidejs/react-splide": "^0.7.12",

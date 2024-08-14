@@ -2,7 +2,7 @@ import React from "react";
 const Header = ()=>{
     return (
         <div className="logo">
-            <a href="/">RecipeApp</a>
+            <a href="/">RecipesApp</a>
         </div>
     )
 }
