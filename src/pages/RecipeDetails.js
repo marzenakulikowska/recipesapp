@@ -34,8 +34,9 @@ const RecipeDetails = ()=>{
         } else {
             try {
                 const response = await fetch(`https://api.spoonacular.com/recipes/${params.recipeId}/nutritionWidget/?apiKey=${process.env.REACT_APP_API_KEY}&defaultCss=true`, {
+                    method: "GET",
                     headers: {
-                        'Accept': 'text/html'
+                        'Content-Type': 'text/html;charset=utf-8'
                     }
                 })
                 if (!response.ok) {
@@ -73,7 +74,12 @@ const RecipeDetails = ()=>{
             setRecipeEquipment({html:localStorageCheck});
         } else {
             try {
-                const response = await fetch(`https://api.spoonacular.com/recipes/${params.recipeId}/equipmentWidget/?apiKey=${process.env.REACT_APP_API_KEY}&defaultCss=true`);
+                const response = await fetch(`https://api.spoonacular.com/recipes/${params.recipeId}/equipmentWidget/?apiKey=${process.env.REACT_APP_API_KEY}&defaultCss=true`, {
+                    method: "GET",
+                    headers: {
+                        'Content-Type': 'text/html'
+                    }
+                });
                 if (!response.ok) {
                     throw new Error('Network response was not ok');
                 }
@@ -123,12 +129,12 @@ const RecipeDetails = ()=>{
     }
     useEffect(()=>{
         fetchedRecipeDetails();
-        fetchedNutrition();
+        // fetchedNutrition();
     },[params.recipeId])
     useEffect(() => {
-        // if (activeTab === "nutrition") {
-        //     fetchedNutrition();
-        // }
+        if (activeTab === "nutrition") {
+            fetchedNutrition();
+        }
         if (activeTab === "equipment") {
             fetchedEquipment();
         }
@@ -137,6 +143,9 @@ const RecipeDetails = ()=>{
         }
         if (activeTab === "recipeCard") {
             fetchedRecipeCard();
+        }
+        if (activeTab === "taste") {
+            fetchedTaste();
         }
     }, [activeTab]);
     return (
@@ -171,7 +180,7 @@ const RecipeDetails = ()=>{
                                     <div className={activeTab === 'instructions' ? 'active btn' : 'btn'} onClick={()=> setActiveTab('instructions')}>Instructions</div>
                                     <div className={activeTab === 'ingredients' ? 'active btn' : 'btn'} onClick={()=> setActiveTab('ingredients')}>Ingredients</div>
                                     <div className={activeTab === 'nutrition' ? 'active btn' : 'btn'} onClick={()=> setActiveTab('nutrition')}>Nutrition</div>
-                                    {/*<div className={activeTab === 'taste' ? 'active btn' : 'btn'} onClick={()=> setActiveTab('taste')}>Taste widget</div>*/}
+                                    <div className={activeTab === 'taste' ? 'active btn' : 'btn'} onClick={()=> setActiveTab('taste')}>Taste widget</div>
                                     <div className={activeTab === 'equipment' ? 'active btn' : 'btn'} onClick={()=> setActiveTab('equipment')}>Equipment</div>
                                     <div className={activeTab === 'price' ? 'active btn' : 'btn'} onClick={()=> setActiveTab('price')}>Price</div>
                                     {
