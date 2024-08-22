@@ -1,4 +1,5 @@
 import React from "react";
+import {Link} from "react-router-dom";
 const MainView = ()=>{
     return (
         <div className="main-view">
@@ -8,10 +9,10 @@ const MainView = ()=>{
                     <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus congue ex at tempor semper. Suspendisse commodo congue quam, sed faucibus nisl gravida id.Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
                     <div className="btns">
                         <div className="btn btn-popular">
-                            <a href="#popular">Most popular recipes</a>
+                            <Link to="#popular">Most popular recipes</Link>
                         </div>
                         <div className="btn">
-                            <a href="#search">Search recipes</a>
+                            <Link to="#search">Search recipes</Link>
                         </div>
                     </div>
                 </div>
